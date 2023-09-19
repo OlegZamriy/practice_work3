@@ -1,19 +1,16 @@
-import math
 
-while True:
-    try:
-        diameter = float(input("Введіть діаметр кола: "))
-        break
-    except ValueError as e:
-        print('Введіть вірний формат діаметру')
 
-choice = input("Оберіть 'площа' або 'периметр' (введіть '1' або '2'): ")
+
+price_per_console = float(input("Введіть вартість однієї ігрової приставки: "))
+quantity = int(input("Введіть кількість ігрових приставок: "))
+discount_percentage = float(input("Введіть відсоток знижки: "))
+choice = input("Оберіть 'загальна сума' або 'вартість однієї приставки' (введіть '1' або '2'): ")
+
 if choice == '1':
-    radius = diameter / 2
-    area = math.pi * (radius ** 2)
-    print(f"Площа кола з діаметром {diameter} дорівнює {area:.2f} квадратних одиниць.")
+    total_price = price_per_console * quantity * (1 - discount_percentage / 100)
+    print(f"Загальна сума замовлення з урахуванням знижки: {total_price:.2f} грн.")
 elif choice == '2':
-    circumference = math.pi * diameter
-    print(f"Периметр кола з діаметром {diameter} дорівнює {circumference:.2f} одиниць довжини.")
+    discounted_price = price_per_console * (1 - discount_percentage / 100)
+    print(f"Вартість однієї приставки зі знижкою: {discounted_price:.2f} грн.")
 else:
-    print("Неправильний вибір. Будь ласка, введіть 'площа' або 'периметр'.")
+    print("Неправильний вибір. Будь ласка, введіть 'загальна сума' або 'приставка'.")
