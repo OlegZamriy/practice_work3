@@ -1,11 +1,13 @@
 import math
 
-
-diameter = float(input("Введіть діаметр кола: "))
+while True:
+    try:
+        diameter = float(input("Введіть діаметр кола: "))
+        break
+    except ValueError as e:
+        print('Введіть вірний формат діаметру')
 
 choice = input("Оберіть 'площа' або 'периметр' (введіть '1' або '2'): ")
-
-
 if choice == '1':
     radius = diameter / 2
     area = math.pi * (radius ** 2)
