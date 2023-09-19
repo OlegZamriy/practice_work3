@@ -1,19 +1,17 @@
-
-seconds_in_a_day = 24 * 60 * 60
-
-
-while True:
-    input_seconds = int(input("Введіть час у секундах: "))
-    if input_seconds <= 86400:
-        break
-    else:
-        print("Час не може бути більше 86400 секунд.")
+import math
 
 
-remaining_seconds = seconds_in_a_day - input_seconds
-remaining_hours = remaining_seconds // 3600
-remaining_minutes = (remaining_seconds % 3600) // 60
-remaining_seconds = remaining_seconds % 60
+diameter = float(input("Введіть діаметр кола: "))
+
+choice = input("Оберіть 'площа' або 'периметр' (введіть '1' або '2'): ")
 
 
-print(f"Залишилось до опівночі: {remaining_hours} годин, {remaining_minutes} хвилин, {remaining_seconds} секунд.")
+if choice == '1':
+    radius = diameter / 2
+    area = math.pi * (radius ** 2)
+    print(f"Площа кола з діаметром {diameter} дорівнює {area:.2f} квадратних одиниць.")
+elif choice == '2':
+    circumference = math.pi * diameter
+    print(f"Периметр кола з діаметром {diameter} дорівнює {circumference:.2f} одиниць довжини.")
+else:
+    print("Неправильний вибір. Будь ласка, введіть 'площа' або 'периметр'.")
